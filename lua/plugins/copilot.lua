@@ -58,11 +58,14 @@ return {
       copilot_cmp.setup(opts)
       -- attach cmp source whenever copilot attaches
       -- fixes lazy-loading issues with the copilot cmp source
-      require("lazyvim.util").lsp.on_attach(function(client)
-        if client.name == "copilot" then
-          copilot_cmp._on_insert_enter({})
-        end
-      end)
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client and client.name == "copilot" then
+            copilot_cmp._on_insert_enter({})
+          end
+        end,
+      })
     end,
   },
 }
