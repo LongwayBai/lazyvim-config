@@ -252,6 +252,7 @@ npm install -g marksman
 │   │   ├── lazy.lua        # Lazy.nvim 配置
 │   │   └── options.lua     # 编辑器选项
 │   └── plugins/
+│       ├── ai.lua          # AI 插件配置
 │       ├── code.lua        # 代码编辑插件
 │       ├── editor.lua      # 编辑器增强插件
 │       ├── lsp.lua         # LSP 配置
