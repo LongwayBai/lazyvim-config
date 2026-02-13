@@ -1,0 +1,25 @@
+# Neovim data directories
+.nvim/
+.neoconf.json
+
+# Lazy.nvim lock file
+lazy-lock.json
+
+# Plugin data
+plugin/
+
+# LSP servers data
+.luarc.json
+
+# Temporary files
+*.swp
+*.swo
+*~
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
