@@ -1,6 +1,6 @@
 # LazyVim 个人配置
 
-[English](README.en.md) | 简体中文
+[English](README_EN.md) | 简体中文
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![LazyVim](https://img.shields.io/badge/LazyVim-v8-green.svg)](https://github.com/LazyVim/LazyVim)
