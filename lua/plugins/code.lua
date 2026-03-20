@@ -1,6 +1,6 @@
 return {
     -- disable todo-comments
-    { "vim-scripts/Mark--KarKat" },
+    { "LongwayBai/Mark--KarKat" },
     { "gcmt/wildfire.vim" },
     {
         "nvim-treesitter/nvim-treesitter",

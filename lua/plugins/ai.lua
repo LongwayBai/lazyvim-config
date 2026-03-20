@@ -3,7 +3,7 @@ return {
     opts = {
         cli = {
             win = {
-                layout = "bottom", ---@type "float" | "bottom" | "right" | "left" | "top"
+                layout = "float", ---@type "float" | "bottom" | "right" | "left" | "top"
             }
         },
         tools = {
