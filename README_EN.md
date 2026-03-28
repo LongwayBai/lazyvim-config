@@ -1,298 +1,186 @@
-# LazyVim Personal Config (English)
+# LazyVim Configuration
 
 English | [简体中文](README.md)
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![LazyVim](https://img.shields.io/badge/LazyVim-v8-green.svg)](https://github.com/LazyVim/LazyVim)
 
-This is my personal Neovim configuration built on [LazyVim](https://github.com/LazyVim/LazyVim). It integrates a curated plugin set and tailored tweaks to deliver a smooth, productive editing experience.
+Personal Neovim configuration built on [LazyVim](https://github.com/LazyVim/LazyVim), designed for keyboard-first development with prewired LSP, search, file management, Markdown tooling, and common language support.
 
-![intro](https://private-user-images.githubusercontent.com/254935088/549778077-25592202-64b7-4ce1-a781-0a36d0bf9b76.gif?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzEwNDE3MzYsIm5iZiI6MTc3MTA0MTQzNiwicGF0aCI6Ii8yNTQ5MzUwODgvNTQ5Nzc4MDc3LTI1NTkyMjAyLTY0YjctNGNlMS1hNzgxLTBhMzZkMGJmOWI3Ni5naWY_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIxNFQwMzU3MTZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jNDFlYTc2N2Y2ODdjMDgxMGY4ODA0MWQxMjVmMTk4YWE4YmRlMDZkYWNhN2RhYjE0NjMwOGFhMDE5ZmYyYmRmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.twOAYBKLr3-VjexYg0iTlYY3ykmtZf-N3xjiaL5uTYw)
+> Companion documentation is available at <https://longwaybai.github.io/docs/lazyvim/>. This repository contains the actual configuration, while the docs site and blog provide installation guidance, keymap reference, plugin rationale, and broader notes.
+
+![LazyVim dashboard](https://longwaybai.github.io/img/lazyvim/lazyvim.png)
+
+![Yazi integration](https://longwaybai.github.io/assets/images/yazi-a8663bf253da6cfd16990f094bff2a05.png)
 
 ## ✨ Highlights
 
-- 🚀 Fast startup and responsive feel powered by LazyVim
-- 🎨 Carefully chosen themes (Tokyo Night / Catppuccin)
-- 🔧 Enhanced LSP experience with Lspsaga
-- 📝 Blink.cmp for smarter completion and editing
-- 🌳 Built-in Yazi file manager
-- 📊 Polished Markdown rendering and preview
-- 🎯 Custom keymaps and workflow optimizations
+- Built on LazyVim v8, preserving the ecosystem while refining the daily workflow
+- Defaults to **Catppuccin Frappé**, with Tokyo Night also configured as an alternative theme
+- Uses **Lspsaga** to improve definition preview, hover docs, code actions, and other LSP entry points
+- Uses **Blink.cmp** for completion and documentation popups, plus Emoji completion for Markdown and Git commits
+- Integrates **Yazi**, **Snacks picker**, and **lazygit** for file navigation, search, and Git operations
+- Includes **render-markdown.nvim** and **markdown-preview.nvim** for Markdown authoring and preview
+- Enables LazyVim extras for Copilot, Sidekick, clangd, JSON, Markdown, Python, and TypeScript
 
-## 📦 Core Plugins
+## 📚 Repository and Documentation Links
 
-### Theme & UI
-- **tokyonight.nvim** – Tokyo Night theme with transparency
-- **catppuccin/nvim** – Default Catppuccin Frappe flavor
-- **lualine.nvim** – Sleek statusline
-- **mini.icons** – Icon support
-- **snacks.nvim** – Enhanced dashboard and UI widgets
+This repository and the published docs are intended to be used together:
 
-### Editor Enhancements
-- **nvim-treesitter** – Syntax highlighting and code analysis
-- **vim-scripts/Mark--KarKat** – Visual marks
-- **gcmt/wildfire.vim** – Fast selection
-- **better-escape.nvim** – JK/JJ escape improvements
-- **yazi.nvim** – Terminal file manager integration
+- [LazyVim Guide](https://longwaybai.github.io/docs/lazyvim/): overview, positioning, and reading path
+- [Installation and Environment Setup](https://longwaybai.github.io/docs/lazyvim/installation): full setup flow, dependencies, and troubleshooting notes
+- [Keymap Reference](https://longwaybai.github.io/docs/lazyvim/keymaps): high-frequency shortcuts and workflow entry points
+- [Plugins and Extensions](https://longwaybai.github.io/docs/lazyvim/plugins): plugin selection and configuration rationale
+- [LongwayBai site / blog](https://longwaybai.github.io/): related tooling notes and additional development setup articles
 
-### LSP & Completion
-- **nvim-lspconfig** – Base LSP setup
-- **lspsaga.nvim** – UI improvements (peek definition, hover docs, etc.)
-- **blink.cmp** – Core completion engine
-- **blink-emoji.nvim** – Emoji completion for Markdown/Git commits
-
-### Markdown
-- **render-markdown.nvim** – Live Markdown rendering
-- **markdown-preview.nvim** – Browser preview (port 7100)
-
-### Code Editing
-- **snacks.nvim picker** – File finder and search frontend
-
-## 🔧 Enabled LazyVim Extras
-
-```lua
-"lazyvim.plugins.extras.ai.copilot"        -- GitHub Copilot AI completion
-"lazyvim.plugins.extras.ai.sidekick"       -- Sidekick AI assistant
-"lazyvim.plugins.extras.lang.clangd"       -- C/C++ language support
-"lazyvim.plugins.extras.lang.json"         -- JSON language support
-"lazyvim.plugins.extras.lang.markdown"     -- Markdown language support
-"lazyvim.plugins.extras.lang.python"       -- Python language support
-"lazyvim.plugins.extras.lang.typescript"   -- TypeScript language support
-```
+The README focuses on repository usage. For expanded explanations, screenshots, and walkthrough-style guidance, use the published docs.
 
 ## 📋 Requirements
 
-### Required Tools
-
-1. **Neovim** >= 0.11.2
-   ```bash
-   # macOS
-   brew install neovim
-
-   # Linux (Ubuntu/Debian)
-   sudo apt install neovim
-   ```
-
-2. **Git**
-   ```bash
-   git --version
-   ```
-
-3. **Node.js**
-   ```bash
-   # macOS
-   brew install node
-
-   # Linux
-   curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-   sudo apt-get install -y nodejs
-   ```
-
-4. **Ripgrep**
-   ```bash
-   # macOS
-   brew install ripgrep
-
-   # Linux
-   sudo apt install ripgrep
-   ```
-
-5. **fd**
-   ```bash
-   # macOS
-   brew install fd
-
-   # Linux
-   sudo apt install fd-find
-   ```
-
-### Recommended Tools
-
-1. **Yazi**
-   ```bash
-   # macOS
-   brew install yazi
-
-   # Linux
-   cargo install --locked yazi-fm
-   ```
-
-2. **lazygit**
-   ```bash
-   # macOS
-   brew install lazygit
-
-   # Linux
-   LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-   curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-   tar xf lazygit.tar.gz lazygit
-   sudo install lazygit /usr/local/bin
-   ```
-
-3. **StyLua**
-   ```bash
-   # macOS
-   brew install stylua
-
-   # Linux
-   cargo install stylua
-   ```
-
-### Language Support Servers
-
-Install LSP servers that match your workflow:
+- **Neovim**: `>= 0.11.2`
+- **Base dependencies**: `git`, `node`, `ripgrep`, `fd`
+- **Recommended tools**: `yazi`, `lazygit`, `stylua`
+- **Language support**: install the required LSP servers through `:Mason` and keep the matching language runtimes available
 
 ```bash
-# Python
-pip install python-lsp-server
-
-# TypeScript / JavaScript
-npm install -g typescript typescript-language-server
-
-# C/C++
-# macOS
-brew install llvm
-
-# JSON
-npm install -g vscode-langservers-extracted
-
-# Markdown
-npm install -g marksman
+nvim --version
+git --version
+node --version
+rg --version
+fd --version
 ```
 
 ## 🚀 Installation
 
-1. Back up existing configuration if present:
-   ```bash
-   mv ~/.config/nvim ~/.config/nvim.bak
-   mv ~/.local/share/nvim ~/.local/share/nvim.bak
-   mv ~/.local/state/nvim ~/.local/state/nvim.bak
-   mv ~/.cache/nvim ~/.cache/nvim.bak
-   ```
-
-2. Clone this config:
-   ```bash
-   git clone https://github.com/yourusername/lazyvim-config.git ~/.config/nvim
-   ```
-
-3. Launch Neovim:
-   ```bash
-   nvim
-   ```
-
-LazyVim will install all plugins automatically during the first launch.
-
-## ⌨️ Common Keymaps
-
-### General
-- `<C-s>` – Save all files
-- `jk` / `jj` – Exit insert mode
-- `ji` – Exit terminal mode
-- `<C-t>` – Toggle terminal
-
-### File Navigation
-- `<leader><space>` – Find files in the current directory
-- `<leader>fy` – Open Yazi
-- `<leader>fw` – Open Yazi in the workspace root
-- `<C-up>` – Restore last Yazi session
-
-### Search
-- `<leader>sg` – Search text in the current folder
-- `<leader>sG` – Search text in the project root
-- `<leader>sw` – Search the word under cursor (current folder)
-- `<leader>sW` – Search the word under cursor (project root)
-
-### LSP
-- `gd` – Peek definition
-- `K` – Show documentation
-- `<leader>ca` – Code actions
-- `<leader>cf` – Format buffer
-- `<leader>a` – Toggle between C/C++ header and source
-
-### Git
-- `<leader>gg` – Launch lazygit in current folder
-- `<leader>gG` – Launch lazygit at project root
-
-### Window Management
-- `<leader>wm` – Maximize/restore window
-- `<leader>uz` – Toggle zoom mode
-- `<leader>uZ` – Toggle Zen mode
-
-### Diagnostics
-- `<leader>sd` – Buffer diagnostics
-- `<leader>sD` – Global diagnostics
-
-## 🎨 Custom Settings
-
-- Indent width: 4 spaces
-- Swap files and auto-formatting are disabled (format manually)
-- Encoding: UTF-8
-- Blink.cmp handles completion, supports `<Tab>`/`<S-Tab>` navigation, `<CR>` to confirm, and `<C-Space>` for manual trigger
-- Diagnostics virtual text, underlines, and inlay hints are disabled in favor of Lspsaga
-
-## 📁 Directory Layout
-
-```
-~/.config/nvim/
-├── init.lua                 # Entry point
-├── lazyvim.json             # LazyVim config file
-├── stylua.toml             # Lua formatter settings
-├── lua/
-│   ├── config/
-│   │   ├── autocmds.lua    # Autocommands
-│   │   ├── keymaps.lua     # Key mappings
-│   │   ├── lazy.lua        # lazy.nvim setup
-│   │   └── options.lua     # Editor options
-│   └── plugins/
-│       ├── ai.lua          # AI configuration
-│       ├── code.lua        # Code editing plugins
-│       ├── editor.lua      # Editor enhancements
-│       ├── lsp.lua         # LSP configuration
-│       ├── theme.lua       # Theme settings
-│       └── ui.lua          # UI helpers
-```
-
-## 🔄 Updates
+### Quick Install
 
 ```bash
-# Update config
+mv ~/.config/nvim ~/.config/nvim.bak 2>/dev/null || true
+mv ~/.local/share/nvim ~/.local/share/nvim.bak 2>/dev/null || true
+mv ~/.local/state/nvim ~/.local/state/nvim.bak 2>/dev/null || true
+mv ~/.cache/nvim ~/.cache/nvim.bak 2>/dev/null || true
+
+git clone https://github.com/LongwayBai/lazyvim-config.git ~/.config/nvim
+nvim
+```
+
+On first launch, LazyVim bootstraps the plugin set automatically. After that, run `:Mason` inside Neovim to install the language servers you need.
+
+### Updating
+
+```bash
 cd ~/.config/nvim
 git pull
+```
 
-# Update plugins inside Neovim
+Then run the following inside Neovim:
+
+```vim
 :Lazy update
 ```
 
-## 🐛 Troubleshooting
+## ⚡ Minimal First Steps
 
-### Plugin loading issues
+The Leader key is **Space**. If you are new to this configuration, start with the following commands and shortcuts:
+
+| Key Binding | Description |
+| --- | --- |
+| `jk` / `jj` | Leave insert mode |
+| `<C-s>` | Save all files |
+| `<leader><space>` | Find files in the current working directory |
+| `<leader>fy` | Open Yazi |
+| `<leader>sg` | Search text in the current directory |
+| `gd` | Peek definition |
+| `K` | Show hover documentation |
+| `<leader>?` | Show available key bindings |
+
+See the full list in the [Keymap Reference](https://longwaybai.github.io/docs/lazyvim/keymaps).
+
+## 🔌 Configuration Overview
+
+### Theme and UI
+
+- `lua/plugins/theme.lua`: configures Tokyo Night and Catppuccin, with `catppuccin-frappe` as the default
+- `lua/plugins/ui.lua`: adjusts the dashboard, lualine, icons, and better-escape behavior
+
+### Editing, Search, and File Management
+
+- `lua/plugins/code.lua`: configures Snacks picker, Markdown rendering/preview, and Yazi integration
+- `lua/plugins/editor.lua`: configures Blink.cmp, documentation windows, keymaps, and Emoji completion
+
+### LSP and Workflow
+
+- `lua/plugins/lsp.lua`: routes `gd`, `K`, `<leader>ca`, `<leader>cf`, and related actions through Lspsaga / LSP
+- `lua/config/keymaps.lua`: adds save, terminal, lazygit, and window zoom shortcuts
+- `lua/config/options.lua`: keeps 4-space indentation, disables swap files and auto-formatting, and uses UTF-8
+
+### Enabled LazyVim extras
+
+```lua
+lazyvim.plugins.extras.ai.copilot
+lazyvim.plugins.extras.ai.sidekick
+lazyvim.plugins.extras.lang.clangd
+lazyvim.plugins.extras.lang.json
+lazyvim.plugins.extras.lang.markdown
+lazyvim.plugins.extras.lang.python
+lazyvim.plugins.extras.lang.typescript
+```
+
+## 🧩 Repository Layout
+
+```text
+lazyvim-config/
+├── init.lua
+├── lazyvim.json
+├── stylua.toml
+├── lua/
+│   ├── config/
+│   │   ├── autocmds.lua
+│   │   ├── keymaps.lua
+│   │   ├── lazy.lua
+│   │   └── options.lua
+│   └── plugins/
+│       ├── ai.lua
+│       ├── code.lua
+│       ├── editor.lua
+│       ├── lsp.lua
+│       ├── theme.lua
+│       └── ui.lua
+├── README.md
+├── README_EN.md
+└── LICENSE
+```
+
+## 🛠️ Troubleshooting
+
+### Plugin and health checks
+
 ```vim
 :Lazy health
 :checkhealth
 ```
 
-### LSP not working
+### LSP is not working as expected
+
 ```vim
-:LspInfo
 :Mason
+:LspInfo
+:LspLog
 ```
 
-### Clear cache
+### Plugin state becomes inconsistent after updates
+
 ```bash
 rm -rf ~/.local/state/nvim
 rm -rf ~/.local/share/nvim
 ```
 
-## 📝 License
+For the full troubleshooting notes, see [Installation and Environment Setup](https://longwaybai.github.io/docs/lazyvim/installation).
 
-This project is licensed under the [Apache License 2.0](LICENSE).
+## 🤝 Contributing
 
-## 🙏 Acknowledgments
+Issues and pull requests are welcome. If you change user-facing behavior, keymaps, or setup steps, please keep this repository README and the companion docs site in sync so the repository and blog remain aligned.
 
-- [LazyVim](https://github.com/LazyVim/LazyVim) – Amazing Neovim starter config
-- [Neovim](https://neovim.io/) – Modern Vim replacement
-- All plugin authors for their hard work
+## 📜 License
 
-## 📞 Feedback
-
-Feel free to open an issue or pull request with questions, suggestions, or improvements.
+See [LICENSE](LICENSE).
