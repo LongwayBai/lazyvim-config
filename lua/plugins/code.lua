@@ -41,23 +41,50 @@ return {
             code = {
                 enabled = true,
                 sign = true,
-                style = 'full',
-                border = 'thin'
+                style = "full",
+                border = "thin",
             },
             heading = {
                 sign = true,
-                icons = { ' 󰼏 ', ' 󰎨 ', ' 󰼑 ', ' 󰎲 ', ' 󰼓 ', ' 󰎴 ' },
+                icons = { " 󰼏 ", " 󰎨 ", " 󰼑 ", " 󰎲 ", " 󰼓 ", " 󰎴 " },
                 -- border = true,
                 -- render_modes = true,          -- keep rendering while inserting
             },
             pipe_table = {
-                alignment_indicator = '─',
-                border = { '╭', '┬', '╮', '├', '┼', '┤', '╰', '┴', '╯', '│', '─' },
+                alignment_indicator = "─",
+                border = { "╭", "┬", "╮", "├", "┼", "┤", "╰", "┴", "╯", "│", "─" },
             },
             checkbox = {
                 enabled = true,
             },
-        }
+        },
+    },
+    {
+        "3rd/image.nvim",
+        build = false,
+        enabled = function()
+            local has_magick = vim.fn.executable("magick") == 1 or vim.fn.executable("convert") == 1
+            local is_kitty = vim.env.KITTY_WINDOW_ID ~= nil or vim.env.TERM == "xterm-kitty"
+            return has_magick and is_kitty
+        end,
+        opts = {
+            backend = "kitty",
+            processor = "magick_cli",
+            max_height_window_percentage = 50,
+            window_overlap_clear_enabled = false,
+            editor_only_render_when_focused = false,
+            tmux_show_only_in_active_window = false,
+            integrations = {
+                markdown = {
+                    enabled = true,
+                    clear_in_insert_mode = false,
+                    download_remote_images = true,
+                    floating_windows = false,
+                    filetypes = { "markdown" },
+                    only_render_image_at_cursor = false,
+                },
+            },
+        },
     },
     {
         "iamcco/markdown-preview.nvim",

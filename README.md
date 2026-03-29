@@ -21,6 +21,7 @@
 - 通过 **Blink.cmp** 提供补全与文档窗口，并为 Markdown / Git commit 启用 Emoji 补全
 - 集成 **Yazi**、**Snacks picker** 与 **lazygit**，覆盖文件导航、搜索与 Git 操作
 - 集成 **render-markdown.nvim** 与 **markdown-preview.nvim**，用于 Markdown 编辑与预览
+- 通过 **image.nvim** 支持在 Kitty 终端中直接预览 Markdown 内嵌图片
 - 启用 LazyVim extras：Copilot、Sidekick、clangd、JSON、Markdown、Python、TypeScript
 
 ## 📚 文档与仓库关联
@@ -105,7 +106,7 @@ Leader 键为 **Space**。如果是第一次使用这套配置，建议先掌握
 
 ### 编辑、搜索与文件管理
 
-- `lua/plugins/code.lua`：配置 Snacks picker、Markdown 渲染/预览与 Yazi 集成
+- `lua/plugins/code.lua`：配置 Snacks picker、Markdown 渲染/预览/Yazi 集成与图片预览
 - `lua/plugins/editor.lua`：配置 Blink.cmp、文档窗口、按键与 Emoji 补全
 
 ### LSP 与工作流
